@@ -1,9 +1,9 @@
 require 'simplecov'
 SimpleCov.start
 
-require "./course.rb"
-require "./chromosome.rb"
-require "./generation.rb"
+require "./lib/course.rb"
+require "./lib/chromosome.rb"
+require "./lib/generation.rb"
 require "test_notifier/runner/rspec"
 require 'csv'
 

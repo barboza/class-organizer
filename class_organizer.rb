@@ -1,6 +1,6 @@
-require "./course.rb"
-require "./chromosome.rb"
-require "./generation.rb"
+require "./lib/course.rb"
+require "./lib/chromosome.rb"
+require "./lib/generation.rb"
 require 'csv'
 
 generation = Array[]
@@ -9,7 +9,7 @@ generation << Generation.new
 	actualGen = generation.last
 	actualGen.procriate
 	actualGen.mutate!	
-	puts x"-"+actualGen.getBestFitness
+	puts actualGen.getBestFitness
 	generation << Generation.new(actualGen.getNextGenChromosomes)
 end
 actualGen = generation.last
