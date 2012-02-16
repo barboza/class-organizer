@@ -41,11 +41,15 @@ class Chromosome
 	end
 
 	def getTeacherFitness
-		weekDays = Array.new(5) { |weekDay| (@courses.select{ |course| course.weekDay == weekDay+1 }).map{ |course| course.teacher } }
-		array = weekDays.map { |weekDay| weekDay.count }
-		uniqueArray = weekDays.map { |weekDay| weekDay.uniq.count }
+		weekDays = Array.new(5) { Array[] }
+		@courses.each do |course|
+			weekDays[course.weekDay-1] << course.teacher
+		end
+		#{ |weekDay| (@courses.select{ |course| course.weekDay == weekDay+1 }).map{ |course| course.teacher } }
+		# array = weekDays.map { |weekDay| weekDay.count }
+		# uniqueArray = weekDays.map { |weekDay| weekDay.uniq.count }
 		fitness = 0
-		array.each_index { |weekDay| fitness += array[weekDay]-uniqueArray[weekDay] }
+		weekDays.each_index { |weekDay| fitness += weekDays[weekDay].count-weekDays[weekDay].uniq.count }
 		fitness
 	end
 

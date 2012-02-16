@@ -16,4 +16,8 @@ class Course
 	def genWeekDay!
 		@weekDay = genWeekDay
 	end
+
+	def to_a
+		Array[@id, @teacher, @name, @students, @weekDay]
+	end
 end

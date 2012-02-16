@@ -32,4 +32,9 @@ class Generation
 		@fathers.sort_by! { |chromosome| chromosome.fitness }
 		(@sons+@fathers.take(80)).sort_by! { |chromosome| chromosome.fitness }.first.fitness
 	end
+
+	def getBestChromosome
+		@fathers.sort_by! { |chromosome| chromosome.fitness }
+		(@sons+@fathers.take(80)).sort_by! { |chromosome| chromosome.fitness }.first.courses
+	end
 end
