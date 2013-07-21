@@ -7,4 +7,4 @@ How to use
 ----------
 run 
 	ruby class_organizer.rb 
-from your colsole
+from your console
